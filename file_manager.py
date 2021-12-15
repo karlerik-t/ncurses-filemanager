@@ -2,10 +2,11 @@ import os
 import imghdr
 import curses
 from curses import wrapper
-from time import sleep 
 
 # -1. Transparent 0. Black 1. Blue 2. Green 3. Cyan 4. Red 5. Magenta 6. Brown 7. White ("Light Gray") 8. Bright Black ("Gray") 9. Bright Blue 10. Bright Green 11. Bright Cyan 12. Bright Red 13. Bright Magenta 14. Yellow 15. Bright White 
 # leidub terminal emulator-eid, mis ei toeta läbipaistvat väärtust. sel juhul peaks kasutama muid väärtusi (nt. 0).
+HEAD_TEXT_FG = 11
+HEAD_TEXT_BG = -1
 SEL_TEXT_FG = 0
 SEL_TEXT_BG = 15
 DIR_TEXT_FG = 11
@@ -14,9 +15,6 @@ IMG_TEXT_FG = 1
 IMG_TEXT_BG = -1
 ETC_TEXT_FG = 15
 ETC_TEXT_BG = -1
-
-HEAD_TEXT_FG = 11
-HEAD_TEXT_BG = -1
 
 # global muutujad
 current_files = None
