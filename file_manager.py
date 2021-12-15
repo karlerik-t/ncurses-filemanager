@@ -190,10 +190,6 @@ def main(stdscr):
         elif key == 71:
             current_row = len(current_files[1]) + len(current_files[2]) + len(current_files[3]) - 1
 
-        # enter
-        elif key == curses.KEY_ENTER or key in [10, 13]:
-            pass
-
         # q/z
         elif key == 113 or key == 122:
             return
