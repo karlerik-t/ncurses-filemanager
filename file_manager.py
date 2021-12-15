@@ -67,7 +67,7 @@ def print_menu(main_window, current_row):
     # muutuja selected aitab järge hoida, et millise faili/kausta peal kasutaja on. selle abil toimub ka kaustade vaheline liikumine.
     for el in current_list[(height*multiplier):(height*(multiplier + 1))]:
         if j == current_row - multiplier*height:
-                # hoiab praeguse kohta failide/kaustada seast
+                # hoiab praegust kohta failide/kaustade seast
                 global selected 
                 selected = el
                 el = short_el(el, n_cols)
@@ -121,7 +121,7 @@ def main(stdscr):
         head_window.refresh()
         
         size_window.clear()
-        # if-condition lisatud selleks, et tühja kausta oleks 0/0.
+        # if-condition lisatud selleks, et tühjas kaustas näitaks 0/0.
         if menu_len == 0:
             size_window.addstr(0, 0, str(0) + "/" + str(0), curses.color_pair(4))
         else:
@@ -208,19 +208,19 @@ def main(stdscr):
                     main_window = curses.newwin(menu_len, n_cols - 10, 2, 10)
                     main_window.refresh()
 
-        # g
+        # g - liigub esimesele kaustale/failile.
         elif key == 103:
             current_row = 0
 
-        # G
+        # G - liigub viimasele failile/kaustale.
         elif key == 71:
             current_row = len(current_files[1]) + len(current_files[2]) + len(current_files[3]) - 1
 
-        # q/z
+        # q/z -  sulgeb programmi, ctrl+c abil saab samuti lõpetada tegevust.
         elif key == 113 or key == 122:
             return
 
         print_menu(main_window, current_row)
 
-# taastab terminal emulator-i sätted pärast programmi sulgumist, veel seadistab värve, lülitab echo välja jne.
+# taastab terminal emulator-i sätted pärast programmi sulgumist. veel seadistab värve, lülitab echo välja jne.
 curses.wrapper(main)
